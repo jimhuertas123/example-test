@@ -1,0 +1,42 @@
+{
+  "name": "example-node-sqlite3",
+  "version": "1.0.0",
+  "description": "Node Sqlite3 example",
+  "main": "src/index.js",
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "lines": 85,
+    "all": true,
+    "include": [
+      "src/**/!(*.test.*).[tj]s?(x)"
+    ],
+    "exclude": [
+      "src/_tests_/**/*.*"
+    ],
+    "reporter": [
+      "html",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "report-dir": "coverage"
+  },
+  "directories": {
+    "test": "./test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:coverage": "nyc npm run test"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "mocha": "latest",
+    "nyc": "^17.1.0",
+    "sqlite3": "^5.0.0"
+  }
+}
